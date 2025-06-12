@@ -1,0 +1,25 @@
+version: '3.8'
+
+services:
+  diabetes-app:
+    build: .
+    ports:
+      - "5000:5000"
+    environment:
+      - NODE_ENV=production
+      - SESSION_SECRET=your-secret-key-change-this
+    restart: unless-stopped
+    
+  # Optional: Add PostgreSQL database
+  # postgres:
+  #   image: postgres:15-alpine
+  #   environment:
+  #     POSTGRES_DB: diabetes_db
+  #     POSTGRES_USER: diabetes_user
+  #     POSTGRES_PASSWORD: your_password
+  #   volumes:
+  #     - postgres_data:/var/lib/postgresql/data
+  #   restart: unless-stopped
+
+# volumes:
+#   postgres_data:
